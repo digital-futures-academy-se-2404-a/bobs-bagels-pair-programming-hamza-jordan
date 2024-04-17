@@ -1,7 +1,7 @@
 //* Production code file
 
-export const addBagel = (bagelName) => {
-  const basketArray = [];
+export const addBagel = (bagelName,basketArray) => {
+  // const basketArray = [];
   basketArray.push(bagelName)
-  return basketArray[0]
+  return basketArray[basketArray.length - 1];
 };

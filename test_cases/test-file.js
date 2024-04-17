@@ -4,27 +4,46 @@ import { addBagel } from "./index.js";
 // Use the assertEquals function with 2 values
 // console.log(assertEquals(true, false));
 
-// Write a test for a function to add 2 numbers
-//? Function will be called addTwoNumbers
-
 //* Tests come in 3 parts (usually)
 //* We power our test with a TRIPLE A Battery:
 
+//? Add bagel in array length of 0 test
 // Arrange
 
-const basketArray = [];
-const bagelName = 'Plain';
-const expected = 'Plain';
+ const basketArrayOne = [];
+ let bagelName = 'Plain';
+ let expected = 'Plain';
 let actual, result;
 
 // Act
-actual = addBagel(bagelName); //* Call the unit under test
+actual = addBagel(bagelName,basketArrayOne); //* Call the unit under test
 
 // Assert
 result = assertEquals(actual, expected);
 
 // Report
 console.log(`Test result: ${result}`);
+
+
+//? Add bagel in array length of 'n' test
+// Arrange
+
+ const basketArrayTwo = ['plain','cheese'];
+ bagelName = 'egg';
+ expected = bagelName;
+
+// Act
+actual = addBagel(bagelName,basketArrayTwo); //* Call the unit under test
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Report
+console.log(`Test result: ${result}`);
+
+
+
+
 
 
 

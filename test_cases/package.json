@@ -1,0 +1,12 @@
+{
+  "name": "test-framework",
+  "version": "1.0.0",
+  "description": "demo test framework and test",
+  "main": "test-framework.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hamza Ibrahim",
+  "license": "ISC"
+}

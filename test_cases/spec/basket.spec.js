@@ -1,17 +1,26 @@
-import { basket } from "../src/basket.js";
+import Basket from "../src/basket.js";
 import { assertEquals } from "./test-framework/test-framework.js";
-
+import Bagel from "../src/bagels.js";
 //? TEST 1
-//* Add item to basket using addItem and expect array (basketItems) has increased in length by 1
+//* Add Bagel to basket using addBagel and expect basket to increase in length by 1
+
+// After each test
+const afterEach = () => {
+    testBasket = null;
+    testBagel = null;
+    actual = null;
+    expected = null;
+}
 
 // Arrange
-
-let expected = basket.items.length + 1;
+let testBasket = new Basket();
+let expected = 1;
 let actual, result;
 
 // Act
-basket.addBagel();
-actual = basket.items.length ;
+let testBagel = new Bagel("Test")
+testBasket.addBagel(testBagel);
+actual = testBasket.getBasket().length ;
 
 // Assert
 
@@ -25,13 +34,61 @@ console.log(result ? `Pass` : `Fail`);
 !result && console.log(`Expected: ${expected}; Actual: ${actual}`);
 console.log('===========');
 
+afterEach();
+
+
 //? TEST 2
-//* Test that item passed to addItem is actually added to the basket
+//* Test that Bagel passed to addBagel is actually added to the basket
+
+// Arrange
+testBasket = new Basket();
+expected = "Test";
+actual, result;
+
+// Act
+testBagel = new Bagel("Test", 1)
+testBasket.addBagel(testBagel);
+actual = testBasket.getBasket()[0].getName(); 
+
+// Assert
+
+result = assertEquals(actual, expected); 
+
+// Report
+
+console.log('Test 2');
+console.log('===========');
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log('===========');
+
+afterEach();
 
 
+//? Test 3 
+//* Test if null is added to the basket
 
+// Arrange
+testBasket = new Basket();
+expected = ["wrong answer"];
 
+// Act
+testBagel = new Bagel("Test", 1)
+testBasket.addBagel(null);
+// console.log('****');
+// console.log(testBasket.getBasket());
+// console.log('****');
+actual = testBasket.getBasket(); 
 
+// Report
+
+console.log('Test 3');
+console.log('===========');
+console.log(result ? `Pass` : `Fail`);
+console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log('===========');
+
+afterEach();
 
 
 
